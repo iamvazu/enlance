@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-white text-ink antialiased font-sans;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-ink;
+  }
+  ::selection {
+    @apply bg-sky-accent/30;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-sky-accent ring-offset-2;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-[15px] font-semibold transition-all duration-200 active:scale-[.98] min-h-[48px];
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white shadow-card hover:bg-brand-700 hover:shadow-lift;
+  }
+  .btn-accent {
+    @apply btn bg-sky-accent text-brand-950 hover:brightness-110;
+  }
+  .btn-ghost {
+    @apply btn border border-brand-200 bg-white text-brand-700 hover:border-brand-400 hover:bg-brand-50;
+  }
+  .btn-ghost-dark {
+    @apply btn border border-white/25 text-white hover:bg-white/10;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[.18em] text-brand-600;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-[2px] w-6 rounded bg-sky-accent;
+  }
+  .h-section {
+    @apply text-[28px] leading-[1.2] font-semibold sm:text-4xl sm:leading-[1.15] md:text-[44px];
+  }
+  .lead {
+    @apply text-base leading-relaxed text-ink-soft sm:text-lg;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-card;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-brand-100 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700;
+  }
+  .input {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-[16px] text-ink placeholder:text-slate-400 transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink-soft;
+  }
+  .grid-bg {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-sky-200 to-sky-accent bg-clip-text text-transparent;
+  }
+}
+
+/* Long-form article typography (no plugin needed) */
+.prose-enlace {
+  @apply text-[17px] leading-[1.75] text-ink-soft;
+}
+.prose-enlace h2 {
+  @apply mt-12 mb-4 scroll-mt-28 text-2xl font-semibold text-ink sm:text-[28px];
+}
+.prose-enlace h3 {
+  @apply mt-8 mb-3 scroll-mt-28 text-xl font-semibold text-ink;
+}
+.prose-enlace p {
+  @apply my-5;
+}
+.prose-enlace a {
+  @apply font-medium text-brand-600 underline decoration-sky-accent/60 underline-offset-4 hover:text-brand-800;
+}
+.prose-enlace ul {
+  @apply my-5 list-disc space-y-2 pl-6 marker:text-sky-accent;
+}
+.prose-enlace ol {
+  @apply my-5 list-decimal space-y-2 pl-6 marker:font-semibold marker:text-brand-600;
+}
+.prose-enlace strong {
+  @apply font-semibold text-ink;
+}
+.prose-enlace blockquote {
+  @apply my-8 rounded-r-2xl border-l-4 border-sky-accent bg-brand-50 px-6 py-4 text-ink;
+}
+.prose-enlace .table-wrap {
+  @apply my-8 overflow-x-auto rounded-2xl border border-slate-200;
+}
+.prose-enlace table {
+  @apply w-full min-w-[520px] border-collapse text-left text-[15px];
+}
+.prose-enlace th {
+  @apply bg-brand-950 px-4 py-3 font-semibold text-white;
+}
+.prose-enlace td {
+  @apply border-t border-slate-200 px-4 py-3 align-top;
+}
+.prose-enlace tr:nth-child(even) td {
+  @apply bg-slate-50;
+}
+.prose-enlace code {
+  @apply rounded bg-slate-100 px-1.5 py-0.5 text-[.9em];
+}
+.prose-enlace hr {
+  @apply my-10 border-slate-200;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
