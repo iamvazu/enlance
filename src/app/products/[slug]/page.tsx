@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowRight, CheckCircle2, Download, FileText } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, FileText, Sparkles } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ProductVisual } from "@/components/ProductVisual";
 import { Reveal } from "@/components/Reveal";
@@ -38,7 +39,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-950 text-white">
-        <ProductVisual icon={p.icon} className="absolute inset-0 opacity-40" />
+        <ProductVisual icon={p.icon} image={p.image} priority className="absolute inset-0 opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/90 to-brand-950/40" />
         <div className="container relative py-10 sm:py-16 lg:py-20">
           <Breadcrumbs dark items={[{ name: "Products", path: "/products" }, { name: p.name, path: `/products/${p.slug}` }]} />
@@ -59,19 +60,30 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </div>
             ) : (
               <Reveal className="hidden lg:block" y={30}>
-                <div className="rounded-3xl border border-white/15 bg-white/[.06] p-6 backdrop-blur-md">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-sky-accent">Available grades</p>
-                  <ul className="mt-4 space-y-3">
-                    {p.grades.map((g) => (
-                      <li key={g.name} className="flex gap-3 rounded-2xl bg-white/[.05] p-4">
-                        <span className="mt-1.5 h-2 w-2 shrink-0 rotate-45 bg-sky-accent" />
-                        <span>
-                          <span className="block font-semibold text-white">{g.name}</span>
-                          <span className="block text-sm text-white/60">{g.bestFor.slice(0, 3).join(" · ")}</span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="overflow-hidden rounded-3xl border border-white/15 bg-white/[.06] backdrop-blur-md shadow-2xl">
+                  <div className="relative h-44 w-full">
+                    <Image src={p.image} alt={p.name} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/40 to-transparent" />
+                    <div className="absolute bottom-3 left-4">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-950/80 px-2.5 py-1 text-xs font-semibold text-sky-accent backdrop-blur-md ring-1 ring-white/20">
+                        <Sparkles className="h-3 w-3" /> In-house Resin
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-sky-accent">Available grades</p>
+                    <ul className="mt-3 space-y-2.5">
+                      {p.grades.map((g) => (
+                        <li key={g.name} className="flex gap-3 rounded-xl bg-white/[.05] p-3 text-sm">
+                          <span className="mt-1 h-2 w-2 shrink-0 rotate-45 bg-sky-accent" />
+                          <span>
+                            <span className="block font-semibold text-white">{g.name}</span>
+                            <span className="block text-xs text-white/60">{g.bestFor.slice(0, 3).join(" · ")}</span>
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </Reveal>
             )}
@@ -82,6 +94,33 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       {/* Body + sticky form */}
       <section className="container grid gap-12 py-14 lg:grid-cols-[1fr_380px] lg:py-20">
         <div className="min-w-0">
+          {/* Featured Application Photography Banner */}
+          <Reveal>
+            <div className="relative mb-10 h-64 sm:h-80 lg:h-96 w-full overflow-hidden rounded-3xl border border-slate-200 shadow-lift">
+              <Image
+                src={p.image}
+                alt={`${p.name} manufacturing and application`}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 800px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 flex flex-wrap items-end justify-between gap-3 text-white">
+                <div>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-accent/20 px-3 py-1 text-xs font-semibold text-sky-accent backdrop-blur-md ring-1 ring-sky-accent/30">
+                    <Sparkles className="h-3.5 w-3.5" /> Polymer Chemistry & Application
+                  </span>
+                  <p className="mt-1.5 text-lg font-semibold text-white sm:text-xl">{p.name}</p>
+                  <p className="text-xs text-white/80 sm:text-sm">{p.short}</p>
+                </div>
+                <span className="rounded-xl bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md">
+                  KINFRA Petrochemical Park, Kochi
+                </span>
+              </div>
+            </div>
+          </Reveal>
+
           <div className="space-y-5 text-[17px] leading-relaxed text-ink-soft">
             {p.body.map((para, i) => <p key={i}>{para}</p>)}
           </div>

@@ -6,7 +6,7 @@ import { ProductVisual } from "./ProductVisual";
 export function ProductCard({ p }: { p: ProductCategory }) {
   return (
     <Link href={`/products/${p.slug}`} className="card group flex h-full flex-col overflow-hidden transition hover:-translate-y-1 hover:shadow-lift">
-      <ProductVisual icon={p.icon} label={p.name} className="h-40 transition duration-500 group-hover:scale-[1.03]" />
+      <ProductVisual icon={p.icon} image={p.image} label={p.name} className="h-48 transition duration-500 group-hover:scale-[1.03]" />
       <div className="flex flex-1 flex-col p-6">
         <h3 className="text-lg font-semibold">{p.name}</h3>
         <p className="mt-2 text-[15px] text-ink-soft">{p.short}</p>

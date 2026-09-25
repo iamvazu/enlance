@@ -13,6 +13,7 @@ export type ProductCategory = {
   name: string;
   short: string;
   icon: "adhesive" | "paint" | "construction" | "textile" | "coir" | "additive";
+  image: string;
   metaTitle: string;
   metaDescription: string;
   primaryKeyword: string;
@@ -37,6 +38,7 @@ export const products: ProductCategory[] = [
     name: "Enfixx Wood Adhesives",
     short: "D1, D2 & D3 synthetic resin wood adhesives for carpentry, plywood, laminates and modular furniture.",
     icon: "adhesive",
+    image: "/images/products/enfixx-wood-adhesives.jpg",
     metaTitle: "Enfixx Wood Adhesive | D3 Waterproof Wood Glue & Synthetic Resin Adhesive Manufacturer Kerala",
     metaDescription:
       "Enfixx wood adhesives by Enlace Polymers — D1, D2 and D3 synthetic resin wood glue for plywood, laminates, veneer, MDF and modular furniture. Made in Kochi, Kerala. Get dealer price.",
@@ -113,6 +115,7 @@ export const products: ProductCategory[] = [
     name: "Paint & Coatings Emulsions",
     short: "Styrene acrylic, pure acrylic and specialty acrylic emulsion binders for decorative and industrial paints.",
     icon: "paint",
+    image: "/images/products/paint-coatings-emulsions.jpg",
     metaTitle: "Acrylic Emulsion Manufacturer | Styrene Acrylic & Pure Acrylic Binder for Paints – Kerala, India",
     metaDescription:
       "Styrene acrylic emulsion, pure acrylic emulsion and specialty acrylic binders for interior, exterior and texture paints. Water-based paint binders manufactured in Kochi for South India's paint makers.",
@@ -181,6 +184,7 @@ export const products: ProductCategory[] = [
     name: "Construction Resins",
     short: "Polymer modifiers for cement, mortar, tile adhesive, waterproofing and repair systems.",
     icon: "construction",
+    image: "/images/products/construction-resins.jpg",
     metaTitle: "Construction Chemical Polymers | Acrylic Polymer for Waterproofing, Mortar & Tile Adhesive",
     metaDescription:
       "Construction resins and acrylic polymer emulsions for cement modification, waterproofing, repair mortar, tile adhesive and flooring. Supplier to construction chemical manufacturers in South India.",
@@ -238,6 +242,7 @@ export const products: ProductCategory[] = [
     name: "Textile Binders & Emulsions",
     short: "Water-based binders for pigment printing, finishing and coating of textiles.",
     icon: "textile",
+    image: "/images/products/textile-binders.jpg",
     metaTitle: "Textile Binder Manufacturer | Pigment Printing Binder & Textile Emulsions – India",
     metaDescription:
       "Water-based textile binders and emulsions for pigment printing, finishing and fabric coating — strong pigment fixation, soft hand feel and wash fastness. Supplier to Tiruppur, Erode & Kerala textile units.",
@@ -285,6 +290,7 @@ export const products: ProductCategory[] = [
     name: "Coir & Natural Fibre Emulsions",
     short: "Water-based emulsions for bonding coir and natural fibres in mats, sheets and geotextiles.",
     icon: "coir",
+    image: "/images/products/coir-emulsions.jpg",
     metaTitle: "Emulsion for Coir Industry | Coir Binder & Natural Fibre Bonding Emulsion – Kerala",
     metaDescription:
       "High-performance water-based emulsions for coir and natural fibre applications — fibre bonding, flexibility and durability for coir mats, rubberised coir sheets, geotextiles and handicrafts. Made in Kerala.",
@@ -331,6 +337,7 @@ export const products: ProductCategory[] = [
     name: "Specialty Additives",
     short: "Rheology modifiers, defoamers, dispersants and wetting agents for coatings and construction.",
     icon: "additive",
+    image: "/images/products/additives.jpg",
     metaTitle: "Paint Additives Supplier | Dispersant, Defoamer, Rheology Modifier & Wetting Agent – India",
     metaDescription:
       "Specialty additives for paints, coatings and construction chemicals — rheology modifiers, defoamers, dispersants and wetting agents, plus custom additive packages developed with your formulation team.",
